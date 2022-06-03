@@ -6,6 +6,9 @@ import React, { useState, useEffect } from "react";
 // api data
 import getSolution from "./api/getSolution";
 
+// components
+import Wordle from "./components/Wordle";
+
 const App = () => {
   // state
   const [solution, setSolution] = useState(null);
@@ -20,7 +23,12 @@ const App = () => {
 
   console.log(solution);
 
-  return <div>Wobble Wordle</div>;
+  return (
+    <div className="App">
+      <h1>Wobble Wordle</h1>
+      {solution && <Wordle solution={solution} />}
+    </div>
+  );
 };
 
 export default App;
