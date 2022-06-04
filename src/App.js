@@ -7,7 +7,7 @@ import React, { useState, useEffect } from "react";
 import getSolution from "./api/getSolution";
 
 // components
-import Wordle from "./components/Wordle";
+import { Wordle } from "./components";
 
 const App = () => {
   // state
