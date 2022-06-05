@@ -25,6 +25,9 @@ const App = () => {
     });
   }, []);
 
+  // ghapla
+  console.log(solution);
+
   return (
     <>
       <div className="App">
