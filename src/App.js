@@ -25,8 +25,7 @@ const App = () => {
 
   // hook
   useEffect(() => {
-    getSolution().then((data) => {
-      const { word } = data[Math.floor(Math.random() * data.length)];
+    getSolution().then((word) => {
       setSolution(word);
     });
   }, []);

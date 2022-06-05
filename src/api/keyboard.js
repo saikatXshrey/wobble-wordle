@@ -1,12 +1,14 @@
 import axios from "axios";
 
 const keyboard = async () => {
-  const { data } = await axios({
+  const {
+    data: { letters },
+  } = await axios({
     method: "GET",
-    url: "http://localhost:4000/letters",
+    url: "https://mocki.io/v1/07f78eb4-ab37-478b-81ea-5ff9a658fbb6",
   });
 
-  return data;
+  return letters;
 };
 
 export default keyboard;
