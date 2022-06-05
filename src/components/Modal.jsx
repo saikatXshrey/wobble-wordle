@@ -1,17 +1,22 @@
 import * as React from "react";
 
-import { Box, Button, Modal, Grid, Typography } from "@mui/material";
+import { Box, Modal, IconButton, Grid, Typography } from "@mui/material";
 import { exportComponentAsPNG } from "react-component-export-image";
+
+// icons
+import RedoIcon from "@mui/icons-material/Redo";
+import CameraIcon from "@mui/icons-material/Camera";
+import ShareIcon from "@mui/icons-material/Share";
 
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "40%",
-  height: "28%",
+  width: "30%",
+  height: "25%",
   bgcolor: "background.paper",
-  border: "2px solid #000",
+  border: "1px solid #000",
   borderRadius: "20px",
   boxShadow: 24,
   p: 4,
@@ -51,38 +56,33 @@ const WordleModal = ({
           </Typography>
 
           <Grid container pt={2} spacing={2}>
-            <Grid item xs={12} sm={4} md={4} lg={4}>
-              <Button
-                fullWidth
-                variant="contained"
-                color="success"
+            <Grid item xs={4} sm={4} md={4} lg={4}>
+              <IconButton
+                color="warning"
                 onClick={() => exportComponentAsPNG(boardRef)}
               >
-                Snap
-              </Button>
+                <CameraIcon />
+              </IconButton>
             </Grid>
 
-            <Grid item xs={12} sm={4} md={4} lg={4}>
-              <Button
-                fullWidth
-                variant="contained"
-                color="secondary"
+            <Grid item xs={4} sm={4} md={4} lg={4}>
+              <IconButton
+                color="error"
                 onClick={() => window.location.reload()}
               >
-                Next
-              </Button>
+                <RedoIcon />
+              </IconButton>
             </Grid>
 
-            <Grid item xs={12} sm={4} md={4} lg={4}>
-              <Button
-                fullWidth
-                variant="contained"
+            <Grid item xs={4} sm={4} md={4} lg={4}>
+              <IconButton
+                color="primary"
                 onClick={() =>
                   navigator.clipboard.writeText(window.location.href)
                 }
               >
-                Share
-              </Button>
+                <ShareIcon />
+              </IconButton>
             </Grid>
           </Grid>
         </Box>

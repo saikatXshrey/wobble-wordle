@@ -4,11 +4,6 @@ import React, { useState, useEffect } from "react";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Confetti from "react-confetti";
 
-// import randomWord from "random-word-by-length";
-// console.log(randomWord(5));
-
-import useWordle from "./hooks/useWordle";
-
 // api data
 import getSolution from "./api/getSolution";
 
