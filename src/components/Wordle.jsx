@@ -36,8 +36,6 @@ const Wordle = ({ solution, setOpenConfetti }) => {
   return (
     <>
       <div ref={boardRef}>
-        <div>solution - {solution}</div>
-        <div>{currentGuess}</div>
         <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
         <Keyboard usedKeys={usedKeys} />
       </div>
