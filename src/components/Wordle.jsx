@@ -21,7 +21,7 @@ const Wordle = ({ solution, setOpenConfetti }) => {
 
     if (isCorrect) {
       setOpenConfetti(true);
-      setTimeout(() => setOpenModal(true), 2000);
+      setTimeout(() => setOpenModal(true), 3000);
       window.removeEventListener("keyup", handleKeyup);
     }
 
@@ -34,11 +34,14 @@ const Wordle = ({ solution, setOpenConfetti }) => {
   }, [handleKeyup, turn, isCorrect]);
 
   return (
-    <div ref={boardRef}>
-      <div>solution - {solution}</div>
-      <div>{currentGuess}</div>
-      <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
-      <Keyboard usedKeys={usedKeys} />
+    <>
+      <div ref={boardRef}>
+        <div>solution - {solution}</div>
+        <div>{currentGuess}</div>
+        <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
+        <Keyboard usedKeys={usedKeys} />
+      </div>
+
       <Modal
         openModal={openModal}
         setOpenModal={setOpenModal}
@@ -47,7 +50,7 @@ const Wordle = ({ solution, setOpenConfetti }) => {
         boardRef={boardRef}
         isCorrect={isCorrect}
       />
-    </div>
+    </>
   );
 };
 

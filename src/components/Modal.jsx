@@ -51,18 +51,36 @@ const WordleModal = ({
           </Typography>
 
           <Grid container pt={2} spacing={2}>
-            <Grid item xs={12} sm={6} md={6} lg={6}>
+            <Grid item xs={12} sm={4} md={4} lg={4}>
               <Button
                 fullWidth
-                variant="outlined"
+                variant="contained"
+                color="success"
                 onClick={() => exportComponentAsPNG(boardRef)}
               >
                 Snap
               </Button>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={6} lg={6}>
-              <Button fullWidth variant="contained">
+            <Grid item xs={12} sm={4} md={4} lg={4}>
+              <Button
+                fullWidth
+                variant="contained"
+                color="secondary"
+                onClick={() => window.location.reload()}
+              >
+                Next
+              </Button>
+            </Grid>
+
+            <Grid item xs={12} sm={4} md={4} lg={4}>
+              <Button
+                fullWidth
+                variant="contained"
+                onClick={() =>
+                  navigator.clipboard.writeText(window.location.href)
+                }
+              >
                 Share
               </Button>
             </Grid>
