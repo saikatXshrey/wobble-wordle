@@ -18,12 +18,10 @@ import { Wordle } from "./components";
 const App = () => {
   // state
   const [solution, setSolution] = useState(null);
+  const [openConfetti, setOpenConfetti] = useState(false);
 
   // hooks
-  const { isCorrect } = useWordle();
   const { width, height } = useWindowSize();
-
-  console.log(isCorrect);
 
   // hook
   useEffect(() => {
@@ -33,17 +31,17 @@ const App = () => {
     });
   }, []);
 
-  console.log(solution);
-
   return (
     <>
       <div className="App">
         <h1>Wobble Wordle</h1>
 
-        {solution && <Wordle solution={solution} />}
+        {solution && (
+          <Wordle solution={solution} setOpenConfetti={setOpenConfetti} />
+        )}
       </div>
 
-      {isCorrect && (
+      {openConfetti && (
         <Confetti
           width={width}
           height={height}

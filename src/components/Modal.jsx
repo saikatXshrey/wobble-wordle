@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import { Box, Button, Modal, Grid, Typography } from "@mui/material";
+import { exportComponentAsPNG } from "react-component-export-image";
 
 const style = {
   position: "absolute",
@@ -21,6 +22,7 @@ const WordleModal = ({
   setOpenModal,
   solution,
   turn,
+  boardRef,
   isCorrect,
 }) => {
   return (
@@ -50,10 +52,15 @@ const WordleModal = ({
 
           <Grid container pt={2} spacing={2}>
             <Grid item xs={12} sm={6} md={6} lg={6}>
-              <Button fullWidth variant="outlined">
+              <Button
+                fullWidth
+                variant="outlined"
+                onClick={() => exportComponentAsPNG(boardRef)}
+              >
                 Snap
               </Button>
             </Grid>
+
             <Grid item xs={12} sm={6} md={6} lg={6}>
               <Button fullWidth variant="contained">
                 Share

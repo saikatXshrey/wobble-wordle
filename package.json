@@ -13,13 +13,11 @@
     "json-server": "^0.17.0",
     "random-word-by-length": "^0.1.0",
     "react": "^18.1.0",
+    "react-component-export-image": "^1.0.6",
     "react-confetti": "^6.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
     "react-use": "^17.4.0",
-    "react-use-window-size": "^1.0.1",
-    "regex": "^0.1.1",
-    "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
