@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 
+// packages
+import useWindowSize from "react-use/lib/useWindowSize";
+import Confetti from "react-confetti";
+
 // import randomWord from "random-word-by-length";
 // console.log(randomWord(5));
+
+import useWordle from "./hooks/useWordle";
 
 // api data
 import getSolution from "./api/getSolution";
@@ -12,6 +18,12 @@ import { Wordle } from "./components";
 const App = () => {
   // state
   const [solution, setSolution] = useState(null);
+
+  // hooks
+  const { isCorrect } = useWordle();
+  const { width, height } = useWindowSize();
+
+  console.log(isCorrect);
 
   // hook
   useEffect(() => {
@@ -24,10 +36,21 @@ const App = () => {
   console.log(solution);
 
   return (
-    <div className="App">
-      <h1>Wobble Wordle</h1>
-      {solution && <Wordle solution={solution} />}
-    </div>
+    <>
+      <div className="App">
+        <h1>Wobble Wordle</h1>
+
+        {solution && <Wordle solution={solution} />}
+      </div>
+
+      {isCorrect && (
+        <Confetti
+          width={width}
+          height={height}
+          colors={["#d76050", "#509ed7", "white"]}
+        />
+      )}
+    </>
   );
 };
 
