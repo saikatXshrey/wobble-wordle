@@ -6,6 +6,7 @@ import useWordle from "../hooks/useWordle";
 import Grid from "./Grid";
 import Keyboard from "./Keyboard";
 import Modal from "./Modal";
+import Snackbar from "./SnackBar";
 
 const Wordle = ({ solution, setOpenConfetti }) => {
   // state
@@ -20,6 +21,7 @@ const Wordle = ({ solution, setOpenConfetti }) => {
     isCorrect,
     handleKeyup,
     handleTouchBoard,
+    history,
   } = useWordle(solution);
   const boardRef = useRef();
 
@@ -38,13 +40,24 @@ const Wordle = ({ solution, setOpenConfetti }) => {
     }
 
     return () => window.removeEventListener("keyup", handleKeyup);
-  }, [handleKeyup, turn, isCorrect]);
+  }, [handleKeyup, setOpenConfetti, turn, isCorrect]);
 
   return (
     <>
       <div ref={boardRef}>
         <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
         <Keyboard usedKeys={usedKeys} handleTouchBoard={handleTouchBoard} />
+
+        {/* pop-up snackbar */}
+        {history.includes(currentGuess) ? (
+          <Snackbar
+            open={history.includes(currentGuess)}
+            message="Current word already used!"
+            color="warning"
+          />
+        ) : (
+          <></>
+        )}
       </div>
 
       <Modal

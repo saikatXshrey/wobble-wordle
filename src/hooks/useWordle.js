@@ -172,6 +172,7 @@ const useWordle = (solution) => {
     isCorrect,
     handleKeyup,
     handleTouchBoard,
+    history,
   };
 };
 
