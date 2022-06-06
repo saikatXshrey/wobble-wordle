@@ -5,7 +5,7 @@ const keyboard = async () => {
     data: { letters },
   } = await axios({
     method: "GET",
-    url: "https://mocki.io/v1/07f78eb4-ab37-478b-81ea-5ff9a658fbb6",
+    url: "https://mocki.io/v1/dc9aced7-5fe4-4741-9c28-d13161f86e85",
   });
 
   return letters;

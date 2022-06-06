@@ -127,7 +127,52 @@ const useWordle = (solution) => {
     }
   };
 
-  return { usedKeys, turn, currentGuess, guesses, isCorrect, handleKeyup };
+  // handle touchboard
+  const handleTouchBoard = (key) => {
+    if (key === "↩") {
+      // only add guess if turn < 5
+      if (turn > 5) {
+        console.log("you used up all your guesses!");
+        return;
+      }
+      // don't allow duplicate words
+      if (history.includes(currentGuess)) {
+        console.log("you already tried the word!");
+        return;
+      }
+      // check word is 5 character long
+      if (currentGuess.length !== 5) {
+        console.log("word must be 5 characters long!");
+        return;
+      }
+
+      const formatted = formatGuess();
+      addNewGuess(formatted);
+    }
+
+    if (key === "⌫") {
+      setCurrentGuess((prev) => prev.slice(0, -1));
+      return;
+    }
+
+    if (/^[A-Za-z]$/.test(key)) {
+      if (currentGuess.length < 5) {
+        setCurrentGuess((prev) => {
+          return prev + key;
+        });
+      }
+    }
+  };
+
+  return {
+    usedKeys,
+    turn,
+    currentGuess,
+    guesses,
+    isCorrect,
+    handleKeyup,
+    handleTouchBoard,
+  };
 };
 
 export default useWordle;

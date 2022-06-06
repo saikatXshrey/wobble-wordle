@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 // data
 import keyboard from "../api/keyboard";
 
-const Keyboard = ({ usedKeys }) => {
+const Keyboard = ({ usedKeys, handleTouchBoard }) => {
   // state
   const [letters, setLetters] = useState(null);
 
@@ -17,7 +17,11 @@ const Keyboard = ({ usedKeys }) => {
         letters.map((l) => {
           const color = usedKeys[l.key];
           return (
-            <div key={l.key} className={color}>
+            <div
+              onClick={() => handleTouchBoard(l.key)}
+              key={l.key}
+              className={color}
+            >
               {l.key}
             </div>
           );

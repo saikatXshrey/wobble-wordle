@@ -12,8 +12,15 @@ const Wordle = ({ solution, setOpenConfetti }) => {
   const [openModal, setOpenModal] = useState(false);
 
   // hooks
-  const { usedKeys, turn, currentGuess, guesses, isCorrect, handleKeyup } =
-    useWordle(solution);
+  const {
+    usedKeys,
+    turn,
+    currentGuess,
+    guesses,
+    isCorrect,
+    handleKeyup,
+    handleTouchBoard,
+  } = useWordle(solution);
   const boardRef = useRef();
 
   useEffect(() => {
@@ -37,7 +44,7 @@ const Wordle = ({ solution, setOpenConfetti }) => {
     <>
       <div ref={boardRef}>
         <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
-        <Keyboard usedKeys={usedKeys} />
+        <Keyboard usedKeys={usedKeys} handleTouchBoard={handleTouchBoard} />
       </div>
 
       <Modal
